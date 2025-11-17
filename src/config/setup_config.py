@@ -1,5 +1,5 @@
-from ..factory.camera_factory import CameraFactory
-from ..factory.can_bus_factory import CanBusFactory
+from factory.camera_factory import CameraFactory
+from factory.can_bus_factory import CanBusFactory
 class SetupConfig:
     def __init__(self):
         self.cameras = []
