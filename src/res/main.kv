@@ -10,16 +10,17 @@ RelativeLayout:
             source: "assets/back_button_normal.png" if self.parent.state == "normal" else "assets/back_button_down.png"
             pos: self.parent.pos
             size: self.parent.size
-    Label:
-        id: counter_label
-        text: "Tic: 0"
-        font_size: 40
     Button:
         id: can_send_btn
         pos_hint: {"x": 0.0, "top": 2.0}
         background_color: 1,0,1,0
         size_hint: 0.1, 0.1
         on_release: button_call()
+    Label:
+        id: counter_label
+        text: "Tic: 0"
+        font_size: 40
+
     Image:
         id: image
         size_hint: 0.5, 0.5
