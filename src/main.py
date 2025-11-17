@@ -65,15 +65,29 @@ class TemplateApp(App):
             await asyncio.sleep(0.01)
 
         while True:
-            await asyncio.sleep(1.0)
-
-
-
-            # increment the counter using internal libs and update the gui
-            self.counter = ops.add(self.counter, 1)
-            self.root.ids.counter_label.text = (
-                f"{'Tic' if self.counter % 2 == 0 else 'Tac'}: {self.counter}"
+            frame = await cameras[0].get_frame()
+            texture =Texture.create(
+                size=(frame.shape[1], frame.shape[0]), icolorfmt="rgb"
             )
+            texture.flip_vertical()
+            texture.blit_buffer(
+                bytes(img.data),
+                colorfmt="rgb",
+                bufferfmt="ubyte",
+                mipmap_generation=False,
+            )
+            self.root.ids.image.texture = texture
+            await asyncio.sleep(0.01)
+
+
+
+
+            #await asyncio.sleep(1.0)
+            # increment the counter using internal libs and update the gui
+            #self.counter = ops.add(self.counter, 1)
+            #self.root.ids.counter_label.text = (
+            #    f"{'Tic' if self.counter % 2 == 0 else 'Tac'}: {self.counter}"
+            #)
 
 
 if __name__ == "__main__":
