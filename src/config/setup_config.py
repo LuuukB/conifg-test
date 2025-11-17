@@ -11,13 +11,14 @@ class SetupConfig:
     def initialize(self):
         if self.robot_online:
             can = self.can_bus_factory.create_online("can")
-            self.cameras.append( self.camera_factory.add_camera_online("oak1", "path"))
-            self.cameras.append(self.camera_factory.add_camera_online("oak2", "path"))
-            self.cameras.append(self.camera_factory.add_camera_online("oak3", "path"))
+            self.camera_factory.add_camera_online("oak1", "path")
+            self.camera_factory.add_camera_online("oak2", "path")
+            self.camera_factory.add_camera_online("oak3", "path")
             self.camera_factory.start_all()
             return self.cameras, can
         else:
-            self.cameras.append(self.camera_factory.add_camera_offline("can"))
+            self.camera_factory.add_camera_offline("video")
+            self.cameras.append(self.camera_factory.get_camera("video"))
             can = self.can_bus_factory.create_offline()
             self.camera_factory.start_all()
             return self.cameras, can
