@@ -15,7 +15,11 @@ RelativeLayout:
         pos_hint: {"x": 0.5, "top": 1.0}
         background_color: 1,0,1,0
         size_hint: 0.1, 0.1
-        on_release: button_call()
+        on_release: app.button_call()
+        Image:
+            source: "assets/back_button_normal.png" if self.parent.state == "normal" else "assets/back_button_down.png"
+            pos: self.parent.pos
+            size: self.parent.size
 
     Label:
         id: counter_label
