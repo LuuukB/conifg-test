@@ -1,5 +1,5 @@
 import asyncio
-from i_can_handler import ICanHandler
+from can.i_can_handler import ICanHandler
 from collections import defaultdict
 
 class MockCanHandler(ICanHandler):
