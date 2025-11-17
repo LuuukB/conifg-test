@@ -9,9 +9,9 @@ class OfflineCameraHandler(ICameraHandler):
                 self.cap = cv2.VideoCapture(0)
             except cv2.error:
                 self.video_path = "/home/luukb/python/video/2025_10_03_11_38_03_013649_smart-sprout.0000.rgb.mp4"
-                self.cap = cv2.VideoCapture(video_path)
+                self.cap = cv2.VideoCapture(self.video_path)
         else:
-            self.cap = cv2.VideoCapture(video_path)
+            self.cap = cv2.VideoCapture(self.video_path)
 
     async def start(self):
         if not self.cap.isOpened():
