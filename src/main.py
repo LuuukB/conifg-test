@@ -45,9 +45,9 @@ class TemplateApp(App):
         """Kills the running kivy application."""
         App.get_running_app().stop()
 
-    def send_0x301(self):
+    async def send_0x301(self):
         print("0x301")
-        self.can.send(0x301, "0x301")
+        await self.can.send(0x301, "0x301")
 
     async def app_func(self):
         async def run_wrapper() -> None:
