@@ -1,4 +1,4 @@
-from src.camera.i_camera_handler import ICameraHandler
+from i_camera_handler import ICameraHandler
 import cv2
 
 class OfflineCameraHandler(ICameraHandler):
