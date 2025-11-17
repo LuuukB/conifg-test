@@ -12,12 +12,12 @@ class CameraFactory:
 
     def add_camera_online(self, name: str,path : Path, stream_name: str = "rgb"):
         """Voeg een realtime camera aan de factory."""
-        from ..camera.camera_handler import CameraHandler
+        from camera.camera_handler import CameraHandler
         self.cameras[name] = CameraHandler(Path(path), stream_name)
 
     def add_camera_offline(self, name: str, source: str = None):
         """Voeg een offline camera aan de factory."""
-        from ..camera.offline_camera_handler import OfflineCameraHandler
+        from camera.offline_camera_handler import OfflineCameraHandler
         self.cameras[name] = OfflineCameraHandler(source)
 
     def get_camera(self, name: str) -> ICameraHandler:
