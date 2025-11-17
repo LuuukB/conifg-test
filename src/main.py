@@ -44,7 +44,7 @@ class TemplateApp(App):
         """Kills the running kivy application."""
         App.get_running_app().stop()
 
-    def button_call(self):
+    def send_0x301(self):
         print("button")
 
     async def app_func(self):
