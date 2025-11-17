@@ -14,6 +14,7 @@ class MockCanHandler(ICanHandler):
         self.callbacks[destination].append(callback)
 
     async def send(self, destination, message):
+        print(f"send message {message} to {destination}")
         await self.queues[destination].put(message)
 
     async def _loop(self, destination, queue):

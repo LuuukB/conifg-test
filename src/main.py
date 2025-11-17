@@ -32,7 +32,8 @@ class TemplateApp(App):
 
     def __init__(self) -> None:
         super().__init__()
-
+        self.can = None
+        self.camera = None
         self.counter: int = 0
 
         self.async_tasks: List[asyncio.Task] = []
@@ -45,7 +46,8 @@ class TemplateApp(App):
         App.get_running_app().stop()
 
     def send_0x301(self):
-        print("button")
+        print("0x301")
+        self.can.send(0x301, "0x301")
 
     async def app_func(self):
         async def run_wrapper() -> None:
@@ -63,12 +65,12 @@ class TemplateApp(App):
     async def template_function(self) -> None:
         """Placeholder forever loop."""
         setupconfig = SetupConfig()
-        cameras, can = setupconfig.initialize()
+        self.cameras, self.can = setupconfig.initialize()
         while self.root is None:
             await asyncio.sleep(0.01)
 
         while True:
-            frame = await cameras[0].get_frame()
+            frame = await self.cameras[0].get_frame()
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             texture =Texture.create(
                 size=(frame.shape[1], frame.shape[0]), icolorfmt="rgb"
