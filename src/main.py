@@ -4,7 +4,7 @@ import asyncio
 import os
 import cv2
 from typing import List
-
+from kivy.graphics.texture import Texture
 from amiga_package import ops
 
 # import internal libs
