@@ -14,6 +14,11 @@ RelativeLayout:
         id: counter_label
         text: "Tic: 0"
         font_size: 40
+    Button:
+        id: can_send_btn
+        pos_hint: {"x": 1.0, "top": 1.0}
+        size_hint: 0.1, 0.1
+        on_release: button_call()
     Image:
         id: image
         size_hint: 0.5, 0.5

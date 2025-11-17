@@ -44,6 +44,9 @@ class TemplateApp(App):
         """Kills the running kivy application."""
         App.get_running_app().stop()
 
+    def button_call(self):
+        print("button")
+
     async def app_func(self):
         async def run_wrapper() -> None:
             # we don't actually need to set asyncio as the lib because it is
