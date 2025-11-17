@@ -24,6 +24,7 @@ Config.set("kivy", "keyboard_mode", "systemanddock")
 # kivy imports
 from kivy.app import App  # noqa: E402
 from kivy.lang.builder import Builder  # noqa: E402
+from config.setup_config import SetupConfig
 
 
 class TemplateApp(App):
@@ -58,11 +59,15 @@ class TemplateApp(App):
 
     async def template_function(self) -> None:
         """Placeholder forever loop."""
+        setupconfig = SetupConfig()
+        cameras, can = setupconfig.initialize()
         while self.root is None:
             await asyncio.sleep(0.01)
 
         while True:
             await asyncio.sleep(1.0)
+
+
 
             # increment the counter using internal libs and update the gui
             self.counter = ops.add(self.counter, 1)
