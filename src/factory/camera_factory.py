@@ -2,7 +2,7 @@
 import asyncio
 from pathlib import Path
 from typing import Dict
-from ..camera.i_camera_handler  import ICameraHandler
+from camera.i_camera_handler  import ICameraHandler
 
 class CameraFactory:
     """Factory en manager voor meerdere camera's tegelijk."""
