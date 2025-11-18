@@ -4,7 +4,7 @@ import asyncio
 import os
 import cv2
 from typing import List
-from kivy.graphics.texture import Texture
+
 from amiga_package import ops
 
 # import internal libs
@@ -25,6 +25,7 @@ Config.set("kivy", "keyboard_mode", "systemanddock")
 # kivy imports
 from kivy.app import App  # noqa: E402
 from kivy.lang.builder import Builder  # noqa: E402
+from kivy.graphics.texture import Texture
 from config.setup_config import SetupConfig
 
 class TemplateApp(App):
