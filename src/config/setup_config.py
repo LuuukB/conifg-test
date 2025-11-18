@@ -3,18 +3,17 @@ from factory.can_bus_factory import CanBusFactory
 class SetupConfig:
     def __init__(self):
         self.cameras = []
-        self.robot_online = False
+        self.robot_online = True
         self.check_robot_status()
         self.camera_factory = CameraFactory()
         self.can_bus_factory = CanBusFactory()
 
     def initialize(self):
         if self.robot_online:
-            can = self.can_bus_factory.create_online("can")
-            self.camera_factory.add_camera_online("oak1", "path")
-            self.camera_factory.add_camera_online("oak2", "path")
-            self.camera_factory.add_camera_online("oak3", "path")
+            #can = self.can_bus_factory.create_online("can")
+            self.camera_factory.add_camera_online("oak0")
             self.camera_factory.start_all()
+            can = None
             return self.cameras, can
         else:
             self.camera_factory.add_camera_offline("video")
