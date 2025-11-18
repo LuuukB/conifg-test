@@ -65,6 +65,7 @@ class TemplateApp(App):
     async def template_function(self) -> None:
         """Placeholder forever loop."""
         setupconfig = SetupConfig()
+        print("setupconfig")
         self.cameras, self.can = setupconfig.initialize()
         print("start task")
         while self.root is None:
