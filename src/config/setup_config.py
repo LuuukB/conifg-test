@@ -15,6 +15,7 @@ class SetupConfig:
             print("add camera online")
             self.camera_factory.start_all()
             can = None
+            self.cameras.append(self.camera_factory.get_camera("oak0"))
             return self.cameras, can
         else:
             self.camera_factory.add_camera_offline("video")
