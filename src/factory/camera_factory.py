@@ -10,10 +10,10 @@ class CameraFactory:
     def __init__(self):
         self.cameras: Dict[str, ICameraHandler] = {}
 
-    def add_camera_online(self, name: str,path : Path, stream_name: str = "rgb"):
+    def add_camera_online(self, name: str, stream_name: str = "rgb"):
         """Voeg een realtime camera aan de factory."""
         from camera.camera_handler import CameraHandler
-        self.cameras[name] = CameraHandler(Path(path), stream_name)
+        self.cameras[name] = CameraHandler(stream_name)
 
     def add_camera_offline(self, name: str, source: str = None):
         """Voeg een offline camera aan de factory."""
