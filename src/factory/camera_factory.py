@@ -13,7 +13,7 @@ class CameraFactory:
     def add_camera_online(self, name: str, stream_name: str = "rgb"):
         """Voeg een realtime camera aan de factory."""
         from camera.camera_handler import CameraHandler
-        self.cameras[name] = CameraHandler(stream_name)
+        self.cameras[name] = CameraHandler(name, stream_name)
 
     def add_camera_offline(self, name: str, source: str = None):
         """Voeg een offline camera aan de factory."""

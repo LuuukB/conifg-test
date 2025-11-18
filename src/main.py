@@ -66,7 +66,7 @@ class TemplateApp(App):
         """Placeholder forever loop."""
         setupconfig = SetupConfig()
         print("setupconfig")
-        self.cameras, self.can = setupconfig.initialize(21)
+        self.cameras, self.can = setupconfig.initialize()
         print("start task")
         while self.root is None:
             await asyncio.sleep(0.01)
