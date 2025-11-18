@@ -66,7 +66,7 @@ class TemplateApp(App):
         """Placeholder forever loop."""
         setupconfig = SetupConfig()
         print("setupconfig")
-        self.cameras, self.can = setupconfig.initialize()
+        self.cameras, self.can = setupconfig.initialize(21)
         print("start task")
         while self.root is None:
             await asyncio.sleep(0.01)
@@ -84,6 +84,7 @@ class TemplateApp(App):
                 bufferfmt="ubyte",
                 mipmap_generation=False,
             )
+
             self.root.ids.image.texture = texture
             await asyncio.sleep(0.01)
 
